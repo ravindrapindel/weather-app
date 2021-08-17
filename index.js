@@ -19,7 +19,7 @@ async function fetchData(name) {
  temp.innerText = resp.current.temperature + "°C";
  weather.innerText = resp.current.weather_descriptions[0];
  highlow.innerText = "precipitation " + resp.current.precip+ " %";
- console.log(resp);
+//  console.log(resp);
 }
 
 searchbox.onkeypress = (e)=>{
