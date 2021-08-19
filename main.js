@@ -1,5 +1,6 @@
 // key = "48cba28fbe0ba67197de313e7eca4189"
 // url= "http://api.weatherstack.com/"
+console.log("yes");
 key ="2ab3fe01c1940330d27c19cda6ab0a0e";
 url = "https://api.openweathermap.org/data/2.5/weather?"
 
