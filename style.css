@@ -1,0 +1,73 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    
+}
+
+
+
+h1{
+    font-size: 50px;;
+}
+
+body{
+    width: 100%;
+    font-family: "montserrat", sans-serif;
+    background-image: url("./bg.jpg");
+    background-size: cover;
+    background-position: top-center;
+    
+}
+
+.app-wrap{
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background-image: linear-gradient( to bottom,rgba(0, 0, 0,0.3), rgba(0, 0, 0,0.6) ); 
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px 15px 15px;
+}
+header input {
+    padding: 10px 15px;
+    border: none;
+    outline: none;
+    background-color: rgba(198, 246, 248, 0.884);
+    border-radius: 15px;
+    font-size: 15px;
+    border-bottom: 3px solid greenyellow;
+}
+header input:focus{
+    background-color: honeydew;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    padding: 50px;
+    align-items: center;
+    text-align: center;
+}
+.city, .date, .temp, .high-low, .weather{
+    
+    color: white;
+    margin: 5px;
+}
+
+.city{
+    font-weight: 600;
+    font-size: 32px;  
+}
+.date, .high-low, .weather{
+    font-weight: 300;
+    font-size: 20px;
+}
+.temp{
+    font-weight: 600;
+    font-size: 60px;
+}
