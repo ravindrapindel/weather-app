@@ -19,7 +19,7 @@ async function fetchData(name) {
  const resp = await ftch.json();
  city.innerText = resp.name;
 const date1 = new Date()
-date.innerText= date1.getDate() + "/" +date1.getMonth()+1 +"/" + date1.getFullYear();
+date.innerText= date1.getDate() + "/" +(parseInt(date1.getMonth())+1) +"/" + date1.getFullYear();
 temp.innerText = (parseInt(resp.main.temp) - 273.15).toFixed(2) + "°C";
  weather.innerText = resp.weather[0].main;
 highlow.innerText =  (parseInt(resp.main.temp_min) - 273.15).toFixed(2) + "°C/" + (parseInt(resp.main.temp_max) - 273.15).toFixed(2) + "°C";
@@ -60,7 +60,7 @@ async function fetchDataNew(lat,lon) {
   const resp = await ftch.json();
   city.innerText = resp.name;
  const date1 = new Date()
- date.innerText= date1.getDate() + "/" +date1.getMonth()+1 +"/" + date1.getFullYear();
+ date.innerText= date1.getDate() + "/" +(parseInt(date1.getMonth())+1) +"/" + date1.getFullYear();
  temp.innerText = (parseInt(resp.main.temp) - 273.15).toFixed(2) + "°C";
   weather.innerText = resp.weather[0].main;
  highlow.innerText =  (parseInt(resp.main.temp_min) - 273.15).toFixed(2) + "°C/" + (parseInt(resp.main.temp_max) - 273.15).toFixed(2) + "°C";
