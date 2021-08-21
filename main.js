@@ -16,6 +16,7 @@ const searchbox = document.querySelector(".search-box");
 // console.log(temp, city, date, weather, highlow);
 async function fetchData(name) {
  const ftch = await fetch(`${url}q=${name}&appid=${key}`);
+ if(ftch.ok){
  const resp = await ftch.json();
  city.innerText = resp.name;
 const date1 = new Date()
@@ -23,12 +24,17 @@ date.innerText= date1.getDate() + "/" +(parseInt(date1.getMonth())+1) +"/" + dat
 temp.innerText = (parseInt(resp.main.temp) - 273.15).toFixed(2) + "°C";
  weather.innerText = resp.weather[0].main;
 highlow.innerText =  (parseInt(resp.main.temp_min) - 273.15).toFixed(2) + "°C/" + (parseInt(resp.main.temp_max) - 273.15).toFixed(2) + "°C";
- console.log(resp);
+//  console.log(resp);
+ }
+ else{
+  alert("Location not found"); 
+ }
 }
 
 searchbox.onkeypress = (e)=>{
     if(e.keyCode == 13){
       fetchData(e.target.value);
+     searchbox.value="";
     }
   }
 
@@ -39,7 +45,7 @@ let lon;
 urlnew="https://api.openweathermap.org/data/2.5/weather?";
 function getLocation() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(showPosition);
+      navigator.geolocation.getCurrentPosition(showPosition,errorCallback);
     } else {
       console.log( "Geolocation is not supported by this browser.");
     }
@@ -49,6 +55,13 @@ function showPosition(position) {
    lat = position.coords.latitude;
   lon = position.coords.longitude;
   fetchDataNew(lat,lon);
+}
+
+function errorCallback(error) {
+  if (error.code == error.PERMISSION_DENIED) {
+      alert("Location access denied, Please allow me to access your loaction");
+      
+  }
 }
 getLocation();
 
